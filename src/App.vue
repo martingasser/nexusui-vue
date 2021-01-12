@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="position" />
+  <div>x position: {{x}}</div>
+  <div>y position: {{y}}</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Nexus from 'nexusui'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data () {
+    return {
+      x: 0,
+      y: 0
+    }
+  },
+  mounted () {
+    this.dial = new Nexus.Position('#position')
+    this.dial.on('change', this.positionChange)
+  },
+  methods: {
+    positionChange (p) {
+      this.x = p.x
+      this.y = p.y
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
