@@ -1,4 +1,6 @@
-# nexus_test
+# NexusUI / vue.js integration
+
+Demonstration of how to integrate NexusUI in a vue.js app.
 
 ## Project setup
 ```
